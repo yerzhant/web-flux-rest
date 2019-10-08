@@ -25,9 +25,8 @@ public class ContactController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Mono<Contact> add(@Valid @RequestBody Contact contact) {
-        // Well, it should return 201, but I have no time to bother with it.
-        // Though the similar thing is done in PUT
         return repository.save(contact);
     }
 
